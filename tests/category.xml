@@ -1,0 +1,23 @@
+<site>
+    <category-def label="Test Category" name="Test Category">
+      <description>
+        Test Category
+      </description>
+    </category-def>
+
+    <feature id="com.fuzzmz_testfeature4.ext" url="features/com.fuzzmz_testfeature4.ext_1.0.0" version="1.0.0">
+      <category name="Test Category" />
+    </feature>
+
+    <feature id="com.fuzzmz.testfeature2" url="features/com.fuzzmz.testfeature2_7.0.0.205834-201405202303" version="7.0.0.205834-201405202303">
+      <category name="Test Category" />
+    </feature>
+
+    <feature id="com.fuzzmz.testfeature3_ext" url="features/com.fuzzmz.testfeature3_ext_4.0.0.205912-201405212118" version="4.0.0.205912-201405212118">
+      <category name="Test Category" />
+    </feature>
+
+    <feature id="com.fuzzmz_testfeature1" url="features/com.fuzzmz_testfeature1_2.8.0.207352-201406060126" version="2.8.0.207352-201406060126">
+      <category name="Test Category" />
+    </feature>
+</site>
