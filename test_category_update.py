@@ -1,7 +1,8 @@
 # coding=utf-8
+import filecmp
 import pytest
 import os
-from category_update import normalize, get_features, get_versions
+from category_update import normalize, get_features, get_versions, update_versions
 
 
 @pytest.fixture
@@ -38,3 +39,9 @@ def test_get_versions(set_fixture):
     assert len(test_mapping) == len(featuremap)
     for i in range(len(test_mapping)):
         assert featuremap[i] in test_mapping
+
+
+def test_update_versions(set_fixture):
+    getfeaturesfunc, path, root, features, featuremap, categoryfile = set_fixture
+    update_versions(featuremap, categoryfile)
+    assert filecmp.cmp(categoryfile, root + '/tests/updated_category.xml')
