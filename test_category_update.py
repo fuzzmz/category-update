@@ -22,9 +22,8 @@ def test_normalize_nonascii():
 
 def test_get_features(set_fixture):
     features, path, root = set_fixture
-    assert get_features(root + '/tests/category.xml') == [
-        'com.fuzzmz_testfeature4.ext', 'com.fuzzmz.testfeature2', 'com.fuzzmz.testfeature3_ext',
-        'com.fuzzmz_testfeature1']
+    assert get_features(root + '/tests/category.xml') == ['com.fuzzmz_testfeature1', 'com.fuzzmz.testfeature2',
+                                                          'com.fuzzmz.testfeature3_ext', 'com.fuzzmz_testfeature4.ext']
 
 
 def test_get_versions(set_fixture):
