@@ -7,15 +7,15 @@ from category_update import normalize, get_features, get_versions
 @pytest.fixture
 def set_fixture():
     root, script = os.path.split(os.path.realpath(__file__))
-    getfeaturesfunc = get_features(root + '/tests/category.xml')
+    categoryfile = root + '/tests/category.xml'
+    getfeaturesfunc = get_features(categoryfile)
     path = root + '/tests/features/'
     features = ['com.fuzzmz_testfeature1', 'com.fuzzmz.testfeature2', 'com.fuzzmz.testfeature3_ext',
                 'com.fuzzmz_testfeature4.ext']
-    featuremap = [('com.fuzzmz_testfeature4.ext', '4.8.0.207352_201406-060126'),
-                  ('com.fuzzmz.testfeature2', '3.8.0.207352-201406060126'),
-                  ('com.fuzzmz.testfeature3_ext', '4.8.0.207352_201406060126'),
-                  ('com.fuzzmz_testfeature1', '2.8.0.207352-201406060126')]
-    return getfeaturesfunc, path, root, features, featuremap
+    featuremap = [('com.fuzzmz_testfeature4.ext', '4.8.0.207352_201406-060126', False),
+                  ('com.fuzzmz.testfeature2', '3.8.0.207352-201406060126', True),
+                  ('com.fuzzmz.testfeature3_ext', '4.8.0.207352_201406060126', True),
+                  ('com.fuzzmz_testfeature1', '2.8.0.207352-201406060126', True)]
 
 
 def test_normalize():

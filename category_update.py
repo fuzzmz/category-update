@@ -36,6 +36,7 @@ def get_versions(features, path):
     files = os.walk(path).next()[2]
     versionmap = []
     contents = []
+    isarchive = False
     for folder in folders:
         for feature in features:
             if feature in folder.lower():
@@ -43,12 +44,13 @@ def get_versions(features, path):
                 root = tree.getroot()
                 for feat in root.iter('feature'):
                     version = feat.attrib['version']
-                    versionmap.append((feature, version))
+                    versionmap.append((feature, version, isarchive))
     for element in files:
         name = str(element).rsplit('.', 1)[0]
         contents.append(name.lower())
 
     for name in contents:
+        isarchive = True
         for feature in features:
             if feature in name:
                 archive = ZipFile(path + '/' + name + '.jar')
@@ -56,7 +58,7 @@ def get_versions(features, path):
                 root = ElemTree.fromstring(xml)
                 for feat in root.iter('feature'):
                     version = feat.attrib['version']
-                    versionmap.append((feature, version))
+                    versionmap.append((feature, version, isarchive))
     return versionmap
 
 
@@ -72,7 +74,10 @@ def update_versions(versionmap, categoryfile):
         for feature in root.iter('feature'):
             if feature.attrib['id'].lower() == item[0]:
                 feature.set('version', item[1])
-                feature.set('url', 'features/' + item[0] + '_' + item[1] + '.jar')
+                if item[2] is True:
+                    feature.set('url', 'features/' + item[0] + '_' + item[1] + '.jar')
+                else:
+                    feature.set('url', 'features/' + item[0] + '_' + item[1])
     tree.write(categoryfile)
 
 
