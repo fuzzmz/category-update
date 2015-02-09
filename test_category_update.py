@@ -33,4 +33,7 @@ def test_get_features(set_fixture):
 
 def test_get_versions(set_fixture):
     getfeaturesfunc, path, root, features, featuremap = set_fixture
-    assert get_versions(getfeaturesfunc, path) == featuremap
+    test_mapping = get_versions(getfeaturesfunc, path)
+    assert len(test_mapping) == len(featuremap)
+    for i in range(len(test_mapping)):
+        assert featuremap[i] in test_mapping
