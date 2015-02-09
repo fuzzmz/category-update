@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This feature defines the set of plugins to use in a eclipse environment -->
+<feature
+      id="com.fuzzmz_testfeature4.ext"
+      label="%featureName"
+      version="4.8.0.207352_201406-060126"
+      provider-name="%providerName"
+      plugin="com.fuzzmz_bla">
+<license url="%licenseURL" >
+      %feature.license
+  </license>
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+</feature>
