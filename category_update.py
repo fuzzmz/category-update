@@ -36,7 +36,6 @@ def get_versions(features, path):
     files = os.walk(path).next()[2]
     versionmap = []
     contents = []
-    isarchive = False
     for folder in folders:
         for feature in features:
             if feature in folder.lower():
@@ -44,13 +43,12 @@ def get_versions(features, path):
                 root = tree.getroot()
                 for feat in root.iter('feature'):
                     version = feat.attrib['version']
-                    versionmap.append((feature, version, isarchive))
+                    versionmap.append((feature, version, False))
     for element in files:
         name = str(element).rsplit('.', 1)[0]
         contents.append(name.lower())
 
     for name in contents:
-        isarchive = True
         for feature in features:
             if feature in name:
                 archive = ZipFile(path + '/' + name + '.jar')
@@ -58,7 +56,7 @@ def get_versions(features, path):
                 root = ElemTree.fromstring(xml)
                 for feat in root.iter('feature'):
                     version = feat.attrib['version']
-                    versionmap.append((feature, version, isarchive))
+                    versionmap.append((feature, version, True))
     return versionmap
 
 
