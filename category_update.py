@@ -50,7 +50,7 @@ def get_versions(features, path):
 
     for name in contents:
         for feature in features:
-            if feature in name:
+            if feature + '_' in name:
                 archive = ZipFile(path + '/' + name + '.jar')
                 xml = archive.read('feature.xml')
                 root = ElemTree.fromstring(xml)
