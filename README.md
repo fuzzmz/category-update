@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/fuzzmz/category-update.svg?branch=master)](https://travis-ci.org/fuzzmz/category-update)
-
 The script updates a category.xml file with the correct versions of the features listed in said category.
 
 The required arguments for the script are:
