@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <site>
     <category-def label="CATEGORY_LABEL" name="CATEGORY_NAME">
       <description>
@@ -6,19 +5,4 @@
       </description>
     </category-def>
 
-    <feature id="com.fuzzmz_testfeature1" url="features/com.fuzzmz_testfeature1_2.8.0.207352-201406060126.jar" version="2.8.0.207352-201406060126">
-      <category name="CATEGORY_NAME" />
-    </feature>
-
-    <feature id="com.fuzzmz.testfeature2" url="features/com.fuzzmz.testfeature2_3.8.0.207352-201406060126.jar" version="3.8.0.207352-201406060126">
-      <category name="CATEGORY_NAME" />
-    </feature>
-
-    <feature id="com.fuzzmz.testfeature3_ext" url="features/com.fuzzmz.testfeature3_ext_4.8.0.207352_201406060126.jar" version="4.8.0.207352_201406060126">
-      <category name="CATEGORY_NAME" />
-    </feature>
-
-    <feature id="com.fuzzmz_testfeature4.ext" url="features/com.fuzzmz_testfeature4.ext_4.8.0.207352_201406-060126" version="4.8.0.207352_201406-060126">
-      <category name="CATEGORY_NAME" />
-    </feature>
-</site>
+<feature id="com.fuzzmz_testfeature4.ext" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz.testfeature2" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz.testfeature3_ext" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz_testfeature1" url="" version=""><category name="CATEGORY_NAME" /></feature></site>
