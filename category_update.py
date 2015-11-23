@@ -84,6 +84,7 @@ def category_update():
     """
     parser = optparse.OptionParser()
 
+    parser.set_defaults(merge=False)
     parser.add_option('-p', '--path',
                       dest='path',
                       action='store',
@@ -94,9 +95,15 @@ def category_update():
                       action='store',
                       help='Path to the category.xml file')
 
+    parser.add_option('-m', '--merge',
+                      dest='merge',
+                      action='store_true',
+                      help='Update an stub category.xml file used for category update')
+
     (opts, args) = parser.parse_args()
     path = normalize(opts.path)
     categoryfile = normalize(opts.categoryFile)
+    merge = opts.merge
 
     features = get_features(categoryfile)
     versionmap = get_versions(features, path)
