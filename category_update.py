@@ -79,6 +79,50 @@ def update_versions(versionmap, categoryfile):
     tree.write(categoryfile)
 
 
+def write_features(categoryfile, path):
+    """Write in the merge stub category.xml file all features found in the path variable
+    :param categoryfile: The path to the stub category.xml file
+    :param path: Path to the folder containing the feature folders
+    """
+    folders = os.walk(path).next()[1]
+    files = os.walk(path).next()[2]
+    features = []
+    for folder in folders:
+        i = 0
+        if folder.count('_') > 0:
+            while i in range(folder.count('_') + 2):
+                if not folder[folder.rfind('_') + 1:][0].isdigit():
+                    features.append(folder)
+                    break
+                else:
+                    folder = folder[:folder.rfind('_')]
+                    i += 1
+        else:
+            features.append(folder)
+
+    for elem in files:
+        i = 0
+        if elem.count('_') > 0:
+            while i in range(elem.count('_') + 2):
+                if not elem[elem.rfind('_') + 1:][0].isdigit():
+                    features.append(elem)
+                    break
+                else:
+                    elem = elem[:elem.rfind('_')]
+                    i += 1
+        else:
+            features.append(elem)
+
+    tree = ElemTree.parse(categoryfile)
+    root = tree.getroot()
+    for feature in features:
+        attributes = {'id': feature, 'url': '', 'version': ''}
+        child = ElemTree.Element('feature', attrib=attributes)
+        catname = ElemTree.SubElement(child, "category", name="CATEGORY_NAME")
+        root.append(child)
+    tree.write(categoryfile)
+
+
 def category_update():
     """Update the feature URLs and versions in a category file
     """
@@ -105,6 +149,8 @@ def category_update():
     categoryfile = normalize(opts.categoryFile)
     merge = opts.merge
 
+    if merge:
+        write_features(categoryfile, path)
     features = get_features(categoryfile)
     versionmap = get_versions(features, path)
     update_versions(versionmap, categoryfile)
