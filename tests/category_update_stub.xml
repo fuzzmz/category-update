@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <category-def label="CATEGORY_LABEL" name="CATEGORY_NAME">
+      <description>
+        CATEGORY_DESCRIPTION
+      </description>
+    </category-def>
+
+</site>
