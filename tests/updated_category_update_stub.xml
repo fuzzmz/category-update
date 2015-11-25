@@ -1,0 +1,8 @@
+<site>
+    <category-def label="CATEGORY_LABEL" name="CATEGORY_NAME">
+      <description>
+        CATEGORY_DESCRIPTION
+      </description>
+    </category-def>
+
+<feature id="com.fuzzmz_testfeature4.ext" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz.testfeature2" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz_testfeature1" url="" version=""><category name="CATEGORY_NAME" /></feature><feature id="com.fuzzmz.testfeature3_ext" url="" version=""><category name="CATEGORY_NAME" /></feature></site>
